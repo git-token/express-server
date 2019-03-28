@@ -16,26 +16,29 @@
 
 const config = {
   web3Provider: process.env['WEB3_PROVIDER'],
-  isGitHubHook: Boolean(process.env['IS_GITHUB_WEBHOOK'] === 'true'),
   dirPath: process.env['GITTOKEN_DIRECTORY_PATH'],
-  keystoreFileName: process.env['GITTOKEN_KEYSTORE_FILENAME'],
-  contractFile: process.env['GITTOKEN_CONTRACT_FILE'],
-  faucetActive: Boolean(process.env['GITTOKEN_FAUCET_ACTIVE'] === 'true'),
-  config: {
-    contributor: process.env['GITTOKEN_CONTRACT_OWNER'],
+  recoveryShare: process.env['GITTOKEN_RECOVERY_SHARE'],
+  address: process.env['GITTOKEN_SIGNER_ADDRESS'],
+  gittokenParams: {
+    owner: process.env['GITTOKEN_CONTRACT_OWNER'],
     name: process.env['GITTOKEN_CONTRACT_NAME'],
     username: process.env['GITTOKEN_CONTRACT_OWNER_USERNAME'],
     organization: process.env['GITTOKEN_CONTRACT_ORGANIZATION'],
     symbol: process.env['GITTOKEN_CONTRACT_SYMBOL'],
     decimals: parseInt(process.env['GITTOKEN_CONTRACT_DECIMALS'])
   },
+  gitterWebHookUrl: process.env['GITTER_WEBHOOK_URL'],
+  gitterToken: process.env['GITTER_TOKEN'],
+  gitterRoomName: process.env['GITTER_ROOM_NAME'],
   githubCredentials: {
     clientID: process.env['GITHUB_API_ID'],
     clientSecret: process.env['GITHUB_API_SECRET'],
-    callbackURL: process.env['GITHUB_API_CALLBACK_URL']
+    callbackURL: process.env['GITHUB_API_CALLBACK_URL'],
+    scope: process.env['GITHUB_API_SCOPE']
   },
   api: {
-    sessionSecret: process.env['GITTOKEN_API_SESSION_SECRET']
+    sessionSecret: process.env['GITTOKEN_API_SESSION_SECRET'],
+    port: process.env['GITTOKEN_API_PORT']
   },
   mysqlOpts: {
     host: process.env['MYSQL_HOST'],
